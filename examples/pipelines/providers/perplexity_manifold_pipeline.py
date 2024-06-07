@@ -35,36 +35,42 @@ class Pipeline:
         self.pipelines = self.get_perplexity_models()
 
     def get_perplexity_models(self):
-        if self.valves.PERPLEXITY_API_KEY:
-            try:
-                headers = {
-                    "Authorization": f"Bearer {self.valves.PERPLEXITY_API_KEY}",
-                    "Content-Type": "application/json"
-                }
+        # if self.valves.PERPLEXITY_API_KEY:
+        #     try:
+        #         headers = {
+        #             "Authorization": f"Bearer {self.valves.PERPLEXITY_API_KEY}",
+        #             "Content-Type": "application/json"
+        #         }
 
-                r = requests.get(
-                    f"{self.valves.PERPLEXITY_API_BASE_URL}/models", headers=headers
-                )
+        #         r = requests.get(
+        #             f"{self.valves.PERPLEXITY_API_BASE_URL}/models", headers=headers
+        #         )
 
-                models = r.json()
-                return [
-                    {
-                        "id": model["id"],
-                        "name": model["name"] if "name" in model else model["id"],
-                    }
-                    for model in models["data"]
-                ]
+        #         models = r.json()
+        #         return [
+        #             {
+        #                 "id": model["id"],
+        #                 "name": model["name"] if "name" in model else model["id"],
+        #             }
+        #             for model in models["data"]
+        #         ]
 
-            except Exception as e:
-                print(f"Error: {e}")
-                return [
-                    {
-                        "id": "error",
-                        "name": "Could not fetch models from Perplexity AI, please update the API Key in the valves.",
-                    },
-                ]
-        else:
-            return []
+        #     except Exception as e:
+        #         print(f"Error: {e}")
+        #         return [
+        #             {
+        #                 "id": "error",
+        #                 "name": "Could not fetch models from Perplexity AI, please update the API Key in the valves.",
+        #             },
+        #         ]
+        # else:
+        #     return []
+        return [
+            {"id": "llama-3-sonar-large-32k-online", "name": "llama-3-sonar-large-32k-online"},
+            # {"id": "claude-3-opus-20240229", "name": "claude-3-opus"},
+            # {"id": "claude-3-sonnet-20240229", "name": "claude-3-sonnet"},
+            # Add other Anthropic models here as they become available
+        ]
 
     def pipe(
         self, user_message: str, model_id: str, messages: List[dict], body: dict
