@@ -7,7 +7,7 @@ import requests
 
 class Pipeline:
     class Valves(BaseModel):
-        PERPLEXITY_API_BASE_URL: str = "https://api.perplexity.ai/v1"
+        PERPLEXITY_API_BASE_URL: str = "https://api.perplexity.ai"
         PERPLEXITY_API_KEY: str = ""
 
     def __init__(self):
