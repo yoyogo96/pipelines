@@ -62,7 +62,7 @@ class Pipeline:
 
         try:
             r = requests.post(
-                url="https://api.perplexity.ai/v1/chat/completions",
+                url="https://api.perplexity.ai/chat/completions",
                 json=payload,
                 headers=headers,
                 stream=True,
