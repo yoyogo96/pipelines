@@ -30,12 +30,12 @@ class Pipeline:
         # List of models
         self.pipelines = [
             {
-                "id": "llama-3.1-sonar-large-128k-online",
-                "name": "Llama 3.1 Sonar Large 128k Online"
+                "id": "sonar-pro",
+                "name": "sonar-pro"
             },
             {
-                "id": "llama-3.1-sonar-small-128k-online",
-                "name": "Llama 3.1 Sonar Small 128k Online"
+                "id": "sonar-deep-research",
+                "name": "sonar-deep-research"
             },
             {
                 "id": "llama-3.1-sonar-large-128k-chat",
@@ -162,6 +162,6 @@ if __name__ == "__main__":
     pipeline = Pipeline()
     pipeline.valves.PERPLEXITY_API_KEY = args.api_key
     response = pipeline.pipe(
-        user_message=args.prompt, model_id="llama-3-sonar-large-32k-online", messages=[], body={"stream": False})
+        user_message=args.prompt, model_id="sonar-pro ", messages=[], body={"stream": False})
 
     print("Response:", response)
