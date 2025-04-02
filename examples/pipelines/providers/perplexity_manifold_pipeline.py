@@ -29,14 +29,11 @@ class Pipeline:
 
         # List of models
         self.pipelines = [
-            {
-                "id": "sonar-pro",
-                "name": "sonar-pro"
-            },
-            {
-                "id": "sonar-deep-research",
-                "name": "sonar-deep-research"
-            },
+            {"id": "sonar-pro", "name": "sonar-pro"},
+            {"id": "sonar-deep-research", "name": "sonar-deep-research"},
+            {"id": "sonar-reasoning", "name": "sonar-reasoning"},
+            {"id": "sonar-reasoning-pro", "name": "sonar-reasoning-pro"},
+            {"id": "r1-1776", "name": "r1-1776"},
         ]
         pass
 
